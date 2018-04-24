@@ -31,7 +31,7 @@
         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" Spacing="5" VerticalOptions="Center">
             <!-- Nikkei -->
             <StackLayout  Orientation="Vertical" BackgroundColor="#341fff" HorizontalOptions="FillAndExpand" >
-                <Grid HorizontalOptions="Center" RowSpacing="0">
+                <Grid HorizontalOptions="CenterAndExpand" RowSpacing="0">
                     <!-- 行の定義 -->
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -149,11 +149,12 @@
 
         <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#0800B2" >
             <!-- 資産状況　ボタン除く列全体 -->
-            <Grid HorizontalOptions="Center" VerticalOptions="EndAndExpand" RowSpacing="0" ColumnSpacing="25">
+            <Grid HorizontalOptions="CenterAndExpand"  RowSpacing="0" ColumnSpacing="25">
                 <!-- 行の定義 -->
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20*"/>
-                    <RowDefinition Height="25*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="30*"/>
+                   
                 </Grid.RowDefinitions>
                 <!-- 列の定義 -->
                 <Grid.ColumnDefinitions>
@@ -179,7 +180,7 @@
                             Text = "Results"
                             TextColor = "Lime"
                             HorizontalTextAlignment = "Center"
-                            VerticalTextAlignment = "Start"
+                            VerticalTextAlignment = "Center"
                             FontSize = "Small"/>
                 <Label x:Name="TitleTotal"
                             Grid.Row="0"
@@ -195,7 +196,7 @@
                             Text = "{Binding PayAssetprice, StringFormat='{0:N0}'}"
                             TextColor = "Yellow"
                             HorizontalTextAlignment = "Center"
-                            VerticalTextAlignment = "Start"
+                            VerticalTextAlignment = "Center"
                             FontSize = "Small"/>
                 <Label x:Name="TitleStock"
                             Grid.Row="0"
@@ -211,7 +212,7 @@
                             Text = "{Binding TotalAsset, StringFormat='{0:N0}'}"
                             TextColor = "Yellow"
                             HorizontalTextAlignment = "Center"
-                            VerticalTextAlignment = "Start"
+                            VerticalTextAlignment = "Center"
                             FontSize = "Small"/>
                 <Label x:Name="Value"
                             Grid.Row="0"
@@ -230,6 +231,7 @@
                             TextColor="Black"
                             BackgroundColor="Yellow"
                             HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
                             WidthRequest="100"
                            HeightRequest="20"
                             />
@@ -399,7 +401,7 @@
                                     <!--ボタン除く列全体 -->
 
 
-                                    <StackLayout Spacing="-5" Margin="-10" Orientation="Vertical" VerticalOptions="Start">
+                                    <StackLayout Spacing="-5" Margin="0,-10,0,-10" Orientation="Vertical" VerticalOptions="Start">
                                         <Label x:Name="ChengeG"
                                                     Text="Chege"
                                                     TextColor="Gray"
@@ -409,7 +411,7 @@
                                         <Button x:Name="EventG" Text="{Binding Prev_day}"
                                                     BackgroundColor="{Binding Polar}"
                                                     CommandParameter="{Binding FirstLastName}"
-                                                    WidthRequest="65">
+                                                    WidthRequest="70">
                                             <Button.HeightRequest>
                                                 <OnPlatform x:TypeArguments="x:Double" iOS="35" Android="40" />
                                             </Button.HeightRequest>
