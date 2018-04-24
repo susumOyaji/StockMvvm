@@ -5,7 +5,7 @@
              xmlns:vm="StockMvvm.ListViewPage"
              x:Class="StockMvvm.ListViewPage"
              x:Name="page">
-    
+
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="0, 20, 0, 0" />
@@ -14,7 +14,7 @@
     </ContentPage.Padding>
 
 
-    
+
     <ContentPage.BindingContext>
         <vm:ListViewPageViewModel View="{x:Reference page}"/>
     </ContentPage.BindingContext>
@@ -28,15 +28,15 @@
     <!-- 全体 -->
     <StackLayout Spacing="0"  BackgroundColor="White" HorizontalOptions="FillAndExpand">
         <!-- Nikkei & Dow -->
-        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" Spacing="5" VerticalOptions="Center"> 
+        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" Spacing="5" VerticalOptions="Center">
             <!-- Nikkei -->
             <StackLayout  Orientation="Vertical" BackgroundColor="#341fff" HorizontalOptions="FillAndExpand" >
                 <Grid HorizontalOptions="Center" RowSpacing="0">
                     <!-- 行の定義 -->
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>      
-                    </Grid.RowDefinitions>    
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
                     <!-- 列の定義 -->
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="15*"/>
@@ -47,7 +47,7 @@
                     <Image Source="{local:ImageResource Images.japan.png}" Margin="0,-2,0,0"  HeightRequest="40" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Start"
                            Grid.Row="0"
                             Grid.Column="0" />
-                    
+
                     <Label x:Name="Nikkei255"
                         Grid.Row="0"
                         Grid.Column="1"
@@ -60,7 +60,7 @@
                     <Label x:Name="Ni255Goingprice"
                         Grid.Row="1"
                         Grid.Column="1"    
-                        Text = "{Binding Ni255Realprice, StringFormat='{0:#.##}'}"
+                        Text = "{Binding Ni255Realprice, StringFormat='{0:#.#}'}"
                         TextColor = "White"
                         HorizontalTextAlignment = "Start"
                         VerticalTextAlignment = "Center"/>
@@ -72,40 +72,40 @@
                         BackgroundColor="{Binding Ni255Polar ,Converter={StaticResource NullToDef}}"    
                         CommandParameter="{Binding Ni255FirstLastName}"
                         HeightRequest="40">
-                            <Button.FontSize>
+                        <Button.FontSize>
                             <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="13" />
-                        </Button.FontSize>    
-                        <Button.Triggers>    
+                        </Button.FontSize>
+                        <Button.Triggers>
                             <EventTrigger Event="Clicked">
                                 <local:ButtonClickedTriggerAction/>
                             </EventTrigger>
                         </Button.Triggers>
                     </Button>
-                </Grid>      
+                </Grid>
             </StackLayout>
 
-            
-        
-                <!-- NewYork列全体 -->
-                <StackLayout Orientation="Vertical" BackgroundColor="#341fff"  HorizontalOptions="FillAndExpand">     
-                    <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="0">
-                        <!-- 行の定義 -->
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>      
-                        </Grid.RowDefinitions>    
-                        <!-- 列の定義 -->
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="15*"/>
-                            <ColumnDefinition Width="45*"/>
-                            <ColumnDefinition Width="40*"/>
-                        </Grid.ColumnDefinitions>
 
 
-                        <Image Source="{local:ImageResource Images.usa.png}" Margin="0,-2,0,0"  HeightRequest="40" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Start"
+            <!-- NewYork列全体 -->
+            <StackLayout Orientation="Vertical" BackgroundColor="#341fff"  HorizontalOptions="FillAndExpand">
+                <Grid HorizontalOptions="Center" VerticalOptions="Center" RowSpacing="0">
+                    <!-- 行の定義 -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <!-- 列の定義 -->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="45*"/>
+                        <ColumnDefinition Width="40*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <Image Source="{local:ImageResource Images.usa.png}" Margin="0,-2,0,0"  HeightRequest="40" WidthRequest="30" HorizontalOptions="Start" VerticalOptions="Start"
                                 Grid.Row="0"
                                 Grid.Column="0"/>
-                            <Label x:Name="City"
+                    <Label x:Name="City"
                                 Grid.Row="0"
                                 Grid.Column="1"
                                  Grid.ColumnSpan="2"   
@@ -114,14 +114,14 @@
                                 HorizontalTextAlignment = "Start"
                                 VerticalTextAlignment = "Center"
                                 FontSize = "15"/>
-                            <Label x:Name="Goingprice"
+                    <Label x:Name="Goingprice"
                                 Grid.Row="1"
                                 Grid.Column="1"     
-                                Text = "{Binding Realprice, StringFormat='{0:#.##}'}"
+                                Text = "{Binding Realprice, StringFormat='{0:#.#}'}"
                                 TextColor = "White"
                                 HorizontalTextAlignment = "End"
                                 VerticalTextAlignment = "Center"/>
-                            <Button x:Name="IndnButton"
+                    <Button x:Name="IndnButton"
                                 Grid.Row="1"
                                 Grid.Column="2"        
                                 Text = "{Binding Prev_day}"
@@ -129,42 +129,42 @@
                                 BackgroundColor="{Binding Polar ,Converter={StaticResource NullToDef}}"
                                 CommandParameter="{Binding FirstLastName}"
                                 HeightRequest="40">
-                                <Button.FontSize>
-                                    <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="13" />
-                                </Button.FontSize>    
-                                <Button.Triggers>    
-                                    <EventTrigger Event="Clicked">
-                                        <local:ButtonClickedTriggerAction/>
-                                    </EventTrigger>
-                                </Button.Triggers>
-                            </Button>
-                        </Grid>
-                </StackLayout>
-            
+                        <Button.FontSize>
+                            <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="13" />
+                        </Button.FontSize>
+                        <Button.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:ButtonClickedTriggerAction/>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </Grid>
+            </StackLayout>
+
         </StackLayout>
 
-      
 
 
 
-            <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#0800B2" >
-                <!-- 資産状況　ボタン除く列全体 -->
-                <Grid HorizontalOptions="CenterAndExpand" >
-                        <!-- 行の定義 -->
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>      
-                        </Grid.RowDefinitions>    
-                        <!-- 列の定義 -->
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25*"/>
-                            <ColumnDefinition Width="25*"/>
-                            <ColumnDefinition Width="25*"/>
-                            <ColumnDefinition Width="25*"/>
-                        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand" VerticalOptions="Center" BackgroundColor="#0800B2" >
+            <!-- 資産状況　ボタン除く列全体 -->
+            <Grid HorizontalOptions="Center" VerticalOptions="EndAndExpand" RowSpacing="0" ColumnSpacing="25">
+                <!-- 行の定義 -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="25*"/>
+                </Grid.RowDefinitions>
+                <!-- 列の定義 -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
 
-                        <Label x:Name="TitleAsset"
+                <Label x:Name="TitleAsset"
                             Grid.Row="0"
                             Grid.Column="0"    
                             Text = "資産状況"
@@ -173,7 +173,7 @@
                             WidthRequest="50"
                             HorizontalTextAlignment = "Center"
                             VerticalTextAlignment = "Start"/>
-                        <Label x:Name="AssetM"
+                <Label x:Name="AssetM"
                             Grid.Row="1"
                             Grid.Column="0"       
                             Text = "Results"
@@ -181,7 +181,7 @@
                             HorizontalTextAlignment = "Center"
                             VerticalTextAlignment = "Start"
                             FontSize = "Small"/>
-                        <Label x:Name="TitleTotal"
+                <Label x:Name="TitleTotal"
                             Grid.Row="0"
                             Grid.Column="1"      
                             Text = "投資総額"
@@ -189,7 +189,7 @@
                             FontSize = "Micro"
                             HorizontalTextAlignment = "Center"
                             VerticalTextAlignment = "Start"/>
-                        <Label x:Name="Investmen"
+                <Label x:Name="Investmen"
                             Grid.Row="1"
                             Grid.Column="1"    
                             Text = "{Binding PayAssetprice, StringFormat='{0:N0}'}"
@@ -197,7 +197,7 @@
                             HorizontalTextAlignment = "Center"
                             VerticalTextAlignment = "Start"
                             FontSize = "Small"/>
-                        <Label x:Name="TitleStock"
+                <Label x:Name="TitleStock"
                             Grid.Row="0"
                             Grid.Column="2"      
                             Text = "時価総額"
@@ -205,7 +205,7 @@
                             FontSize = "Micro"
                             HorizontalTextAlignment = "Center"
                             VerticalTextAlignment = "Start"/>
-                        <Label x:Name="TotalAsset"
+                <Label x:Name="TotalAsset"
                             Grid.Row="1"
                             Grid.Column="2"        
                             Text = "{Binding TotalAsset, StringFormat='{0:N0}'}"
@@ -213,7 +213,7 @@
                             HorizontalTextAlignment = "Center"
                             VerticalTextAlignment = "Start"
                             FontSize = "Small"/>
-                        <Label x:Name="Value"
+                <Label x:Name="Value"
                             Grid.Row="0"
                             Grid.Column="3"      
                             Text = "損益"
@@ -221,61 +221,66 @@
                             FontSize = "Micro"
                             HorizontalTextAlignment = "Center"
                             VerticalTextAlignment = "Start"/>
-                        <Button x:Name="GainButton"
+                <Frame Padding="0" BackgroundColor="#FFFF" Grid.Row="1" Grid.Column="3" HeightRequest="20">
+
+                    <Label x:Name="GainLabel"
                             Grid.Row="1"
                             Grid.Column="3"  
                             Text="{Binding UptoAsset, StringFormat='{0:N0}'}"
                             TextColor="Black"
                             BackgroundColor="Yellow"
-                            BorderColor="Red"
-                            BorderWidth="2"/>
-                    </Grid>
-            </StackLayout>
+                            HorizontalTextAlignment="Center"
+                            WidthRequest="100"
+                           HeightRequest="20"
+                            />
+                </Frame>
+            </Grid>
+        </StackLayout>
 
-        
-        
+
+
         <!-- Button -->
         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#344fff">
             <Grid HorizontalOptions="CenterAndExpand">
                 <!-- 行の定義 -->
                 <Grid.RowDefinitions>
-                  <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>    
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
                 <!-- 列の定義 -->
                 <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="20*"/>
-                  <ColumnDefinition Width="60*"/>
-                  <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="60*"/>
+                    <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
-                
-                    <Button  BackgroundColor="Red" 
+
+                <Button  BackgroundColor="Red" 
                             Grid.Row="0"
                             Grid.Column="0"
                             Text="Add."
                             Command="{Binding AddCommand}"/>
-                    
-                    <Button  BackgroundColor="Gray" 
+
+                <Button  BackgroundColor="Gray" 
                             Grid.Row="0"
                             Grid.Column="2"
                             Text="Ref."
                             Command="{Binding RefCommand}"/>
-             </Grid>
-       </StackLayout>
+            </Grid>
+        </StackLayout>
 
 
 
 
-       
+
         <ListView x:Name="Listview" ItemSelected="OnItemSelected" ItemTapped="OnItemTapped" BackgroundColor="#0000dd" HorizontalOptions="FillAndExpand"
                                     SeparatorVisibility="None" SeparatorColor="Yellow" HasUnevenRows="false" ItemsSource="{Binding ItemList}">
-            
+
             <ListView.RowHeight>
                 <OnPlatform x:TypeArguments="x:Int32">
                     <On Platform="iOS, Android" Value="60" />
                     <On Platform="UWP" Value="90" />
                 </OnPlatform>
             </ListView.RowHeight>
-            
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -286,30 +291,30 @@
                         </ViewCell.ContextActions>
 
                         <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="#0000dd"  >
-                                <Frame  BackgroundColor="Blue" Margin="0" HeightRequest="20" VerticalOptions="Start">
-                                    <!-- 列全体 -->
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Frame  BackgroundColor="Blue" Margin="0" HeightRequest="20" VerticalOptions="Start">
+                                <!-- 列全体 -->
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
 
-                                        <Grid RowSpacing="0" Margin="-10" VerticalOptions="CenterAndExpand">
-                                            <!-- 行の定義 -->
-                                            <Grid.RowDefinitions >
-                                                <RowDefinition Height="Auto" />
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <!-- 列の定義 -->
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="1.5*"/>
-                                                <ColumnDefinition Width="1.5*"/>
-                                                <ColumnDefinition Width="1.5*"/>
-                                                <ColumnDefinition Width="2.5*"/>
-                                                <ColumnDefinition Width="3*"/>
+                                    <Grid RowSpacing="0" Margin="-10" VerticalOptions="CenterAndExpand">
+                                        <!-- 行の定義 -->
+                                        <Grid.RowDefinitions >
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <!-- 列の定義 -->
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1.5*"/>
+                                            <ColumnDefinition Width="1.5*"/>
+                                            <ColumnDefinition Width="1.5*"/>
+                                            <ColumnDefinition Width="2.5*"/>
+                                            <ColumnDefinition Width="3*"/>
 
-                                            </Grid.ColumnDefinitions>
+                                        </Grid.ColumnDefinitions>
 
-                                            <!--ボタン除く列全体-->
-                                            <!--<StackLayout Spacing="-5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">   -->
-                                            <!-- 企業コード名 -->
-                                            <Label x:Name="Code"
+                                        <!--ボタン除く列全体-->
+                                        <!--<StackLayout Spacing="-5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="Center">   -->
+                                        <!-- 企業コード名 -->
+                                        <Label x:Name="Code"
                                                     Grid.Row="0"
                                                     Grid.Column="0" 
                                                     Text = "Name"
@@ -317,7 +322,7 @@
                                                     FontSize="Default"   
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                            <Label x:Name="City"
+                                        <Label x:Name="City"
                                                     Grid.Row="1"
                                                     Grid.Column="0" 
                                                     Text = "{Binding Name}"
@@ -325,15 +330,15 @@
                                                     FontSize="Default"   
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                            <!--取得金額 -->
-                                            <Label Grid.Row="0"
+                                        <!--取得金額 -->
+                                        <Label Grid.Row="0"
                                                     Grid.Column="1"
                                                     Text = "Buyprice"
                                                     TextColor="Gray"
                                                     FontSize="Micro" 
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                            <Label x:Name="Itemprice"
+                                        <Label x:Name="Itemprice"
                                                     Grid.Row="1"
                                                     Grid.Column="1"
                                                     Text = "{Binding Itemprice}"
@@ -341,15 +346,15 @@
                                                     FontSize="Default"     
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                            <!-- Carentprice 現在値 -->
-                                            <Label Grid.Row="0"
+                                        <!-- Carentprice 現在値 -->
+                                        <Label Grid.Row="0"
                                                     Grid.Column="2"
                                                     Text = "Market"
                                                     TextColor="Gray"
                                                     FontSize="Micro"
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                            <Label x:Name="Realprice" 
+                                        <Label x:Name="Realprice" 
                                                     Grid.Row="1"
                                                     Grid.Column="2"
                                                     Text = "{Binding Realprice }"
@@ -357,15 +362,15 @@
                                                     FontSize="Default"     
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                            <!-- 損益 -->
-                                            <Label  Grid.Row="0"
+                                        <!-- 損益 -->
+                                        <Label  Grid.Row="0"
                                                     Grid.Column="3"
                                                     Text = "Gain"
                                                     TextColor="Red"
                                                     FontSize="Micro"
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                            <Label  x:Name= "Gain"
+                                        <Label  x:Name= "Gain"
                                                     Grid.Row="1"
                                                     Grid.Column="3"
                                                     Text = "{Binding Path= Gain, StringFormat='{0:N0}'}"
@@ -373,15 +378,15 @@
                                                     FontSize="Default"   
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                            <!-- 時価総額  -->
-                                            <Label Grid.Row="0"
+                                        <!-- 時価総額  -->
+                                        <Label Grid.Row="0"
                                                     Grid.Column="4"
                                                     Text = "RealValue"
                                                     TextColor="Gray"
                                                     FontSize="Micro"
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                            <Label x:Name= "MarketCapitalization"
+                                        <Label x:Name= "MarketCapitalization"
                                                     Grid.Row="1"
                                                     Grid.Column="4"
                                                     Text = "{Binding RealValue, StringFormat='{0:N0}'}"
@@ -389,41 +394,41 @@
                                                     FontSize="Default"  
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "Start"/>
-                                        </Grid>
-                                        <!-- </StackLayout> -->
-                                        <!--ボタン除く列全体 -->
+                                    </Grid>
+                                    <!-- </StackLayout> -->
+                                    <!--ボタン除く列全体 -->
 
 
-                                        <StackLayout Spacing="-5" Margin="-10" Orientation="Vertical" VerticalOptions="Start">
-                                            <Label x:Name="ChengeG"
+                                    <StackLayout Spacing="-5" Margin="-10" Orientation="Vertical" VerticalOptions="Start">
+                                        <Label x:Name="ChengeG"
                                                     Text="Chege"
                                                     TextColor="Gray"
                                                     FontSize="Micro"
                                                     HorizontalTextAlignment = "Center"
                                                     VerticalTextAlignment = "End"/>
-                                            <Button x:Name="EventG" Text="{Binding Prev_day}"
+                                        <Button x:Name="EventG" Text="{Binding Prev_day}"
                                                     BackgroundColor="{Binding Polar}"
                                                     CommandParameter="{Binding FirstLastName}"
                                                     WidthRequest="65">
-                                                <Button.HeightRequest>
-                                                    <OnPlatform x:TypeArguments="x:Double" iOS="35" Android="40" />
-                                                </Button.HeightRequest>
-                                                <Button.Triggers>
-                                                    <EventTrigger Event="Clicked">
-                                                        <local:ButtonClickedTriggerAction/>
-                                                    </EventTrigger>
-                                                </Button.Triggers>
-                                            </Button>
-                                        </StackLayout>
-
+                                            <Button.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double" iOS="35" Android="40" />
+                                            </Button.HeightRequest>
+                                            <Button.Triggers>
+                                                <EventTrigger Event="Clicked">
+                                                    <local:ButtonClickedTriggerAction/>
+                                                </EventTrigger>
+                                            </Button.Triggers>
+                                        </Button>
                                     </StackLayout>
-                                </Frame>
-                            </StackLayout>
-                            
-                        </ViewCell>
+
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-       
+
     </StackLayout>
 </ContentPage>
