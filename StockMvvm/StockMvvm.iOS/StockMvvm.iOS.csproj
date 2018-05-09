@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Developer: sumitomo0210@gmail.com (Q279J9NQ7U)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
@@ -127,7 +127,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\StockMvvm\StockMvvm.csproj">
-      <Project>{52681108-FD63-4D43-9AC5-38812014CDFF}</Project>
+      <Project>{B2A1EBE5-92F9-42E1-BC30-BAA05910660A}</Project>
       <Name>StockMvvm</Name>
     </ProjectReference>
   </ItemGroup>

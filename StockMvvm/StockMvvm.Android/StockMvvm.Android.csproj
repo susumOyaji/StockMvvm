@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>StockMvvm.Droid</RootNamespace>
     <AssemblyName>StockMvvm.Android</AssemblyName>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -84,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StockMvvm\StockMvvm.csproj">
-      <Project>{52681108-FD63-4D43-9AC5-38812014CDFF}</Project>
+      <Project>{B2A1EBE5-92F9-42E1-BC30-BAA05910660A}</Project>
       <Name>StockMvvm</Name>
     </ProjectReference>
   </ItemGroup>
